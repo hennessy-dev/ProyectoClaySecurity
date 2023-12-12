@@ -17,7 +17,7 @@ public partial class RefreshToken
 
     public bool IsActive {get;set;}
 
-    public string Revoked { get; set; } = null!;
+    public string Revoked { get; set; } = "";
 
     public virtual Usuario IdUsuarioFkNavigation { get; set; } = null!;
 }

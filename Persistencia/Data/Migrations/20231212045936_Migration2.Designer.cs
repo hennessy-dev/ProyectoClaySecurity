@@ -11,8 +11,8 @@ using Persistencia;
 namespace Persistencia.Data.Migrations
 {
     [DbContext(typeof(ApiContext))]
-    [Migration("20231212005116_Migration1")]
-    partial class Migration1
+    [Migration("20231212045936_Migration2")]
+    partial class Migration2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -222,7 +222,7 @@ namespace Persistencia.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("id");
+                        .HasColumnName("Id");
 
                     b.Property<string>("Apellido")
                         .IsRequired()
@@ -324,8 +324,8 @@ namespace Persistencia.Data.Migrations
 
                     b.Property<string>("Token")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar(255)");
+                        .HasMaxLength(600)
+                        .HasColumnType("varchar(600)");
 
                     b.HasKey("Id")
                         .HasName("PRIMARY");
@@ -364,7 +364,7 @@ namespace Persistencia.Data.Migrations
 
                     b.HasIndex("IdRolFk");
 
-                    b.ToTable("userRol", (string)null);
+                    b.ToTable("RolUsuario", (string)null);
                 });
 
             modelBuilder.Entity("Dominio.Entities.TipoContacto", b =>
@@ -462,8 +462,8 @@ namespace Persistencia.Data.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasMaxLength(45)
-                        .HasColumnType("varchar(45)");
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
 
                     b.HasKey("Id")
                         .HasName("PRIMARY");

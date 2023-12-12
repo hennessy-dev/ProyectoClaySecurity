@@ -98,7 +98,13 @@ public class UserService : IUserService
                 dataUserDto.RefreshTokenExpiration = refreshToken.Expires;
                 user.RefreshTokens.Add(refreshToken);
                 _unitOfWork.Usuarios.Update(user);
+                try
+                {
                 await _unitOfWork.SaveAsync();
+                } catch (Exception ex)
+                {
+                    Console.WriteLine($"Error al guardar cambios en la base de datos: {ex}");
+                }
             }
 
             return dataUserDto;

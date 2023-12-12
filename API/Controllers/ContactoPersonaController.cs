@@ -10,7 +10,7 @@ namespace API.Controllers;
 
 [ApiVersion("1.0")]
 [ApiVersion("1.1")]
-[Authorize(Roles = "Empleado, Administrador, Gerente")]
+//[Authorize(Roles = "Empleado, Administrador, Gerente")]
 public class ContactoPersonaController : BaseApiController
 {
   private readonly IUnitOfWork _unitOfWork;
@@ -28,6 +28,15 @@ public class ContactoPersonaController : BaseApiController
   public async Task<ActionResult<IEnumerable<ContactoPersona>>> Get()
   {
       var resultado = await _unitOfWork.ContactoPersonas.GetAllAsync();
+      return Ok(resultado);
+  }
+
+  [HttpGet("ListarContactosVigilantes")]
+  [ProducesResponseType(StatusCodes.Status200OK)]
+  [ProducesResponseType(StatusCodes.Status400BadRequest)]
+  public async Task<ActionResult<IEnumerable<ContactoPersona>>> ListarContactosVigilantes()
+  {
+      var resultado = await _unitOfWork.ContactoPersonas.ListarContactosVigilantes();
       return Ok(resultado);
   }
 

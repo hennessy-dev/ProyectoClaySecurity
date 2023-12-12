@@ -10,7 +10,7 @@ namespace API.Controllers;
 
 [ApiVersion("1.0")]
 [ApiVersion("1.1")]
-// [Authorize(Roles = "Empleado, Administrador, Gerente")]
+//[Authorize(Roles = "Empleado, Administrador, Gerente")]
 public class PersonaController : BaseApiController
 {
     private readonly IUnitOfWork _unitOfWork;
@@ -30,6 +30,42 @@ public class PersonaController : BaseApiController
         var resultado = await _unitOfWork.Personas.GetAllAsync();
         return Ok(resultado);
     }
+
+    [HttpGet("ListarEmpleados")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<object>>> ListarEmpleadosEmpresa()
+    {
+        var resultado = await _unitOfWork.Personas.ListarEmpleadosEmpresa();
+        return Ok(resultado);
+    }
+
+    [HttpGet("ListarClientesBucaramanga")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<object>>> ListarClientesBucaramanga()
+    {
+        var resultado = await _unitOfWork.Personas.ListarClientesBucaramanga();
+        return Ok(resultado);
+    }
+
+    [HttpGet("ListarEmpleadosGironPiedecuesta")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult<IEnumerable<object>>> ListarEmpleadosGironPiedecuesta()
+        {
+            var resultado = await _unitOfWork.Personas.ListarEmpleadosGironPiedecuesta();
+            return Ok(resultado);
+        }
+
+    [HttpGet("ClientesCon5AñosAntiguedad")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult<IEnumerable<object>>> ClientesCon5AñosAntiguedad()
+        {
+            var resultado = await _unitOfWork.Personas.ClientesCon5AñosAntiguedad();
+            return Ok(resultado);
+        }
 
     [HttpGet]
     [ApiVersion("1.1")]

@@ -18,7 +18,7 @@ public class RefreshTokenConfiguration : IEntityTypeConfiguration<RefreshToken>
             entity.Property(e => e.Created).HasColumnType("datetime");
             entity.Property(e => e.Expires).HasColumnType("datetime");
             entity.Property(e => e.Revoked).HasMaxLength(45);
-            entity.Property(e => e.Token).HasMaxLength(255);
+            entity.Property(e => e.Token).HasMaxLength(600);
 
             entity.HasOne(d => d.IdUsuarioFkNavigation).WithMany(p => p.RefreshTokens)
                 .HasForeignKey(d => d.IdUsuarioFk)

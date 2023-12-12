@@ -6,6 +6,6 @@ namespace Dominio.Entities;
 public partial class CategoriaPersona
 {
     public int Id { get; set; }
-    public string NombreCategoria { get; set; } = null!;
+    public string NombreCategoria { get; set; } = "Sin Especificar";
     public virtual ICollection<Persona> Personas { get; set; } = new List<Persona>();
 }

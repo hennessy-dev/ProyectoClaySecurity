@@ -133,7 +133,14 @@ public class UsuarioController : BaseApiController
             HttpOnly = true,
             Expires = DateTime.UtcNow.AddDays(10),
         };
-        Response.Cookies.Append("refreshToken", refreshToken, cookieOptions);
+        try
+        {
+            Response.Cookies.Append("refreshToken", refreshToken, cookieOptions);
+        }
+        catch (ArgumentNullException) 
+        {
+            throw new Exception();
+        }
     }
 
 }

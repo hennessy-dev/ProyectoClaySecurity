@@ -13,7 +13,7 @@ public class UsuarioConfiguration : IEntityTypeConfiguration<Usuario>
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Email).HasMaxLength(60);
             entity.Property(e => e.Nombre).HasMaxLength(45);
-            entity.Property(e => e.Password).HasMaxLength(45);
+            entity.Property(e => e.Password).HasMaxLength(255);
 
             // entity.HasMany(d => d.Roles).WithMany(p => p.Usuari)
             //     .UsingEntity<Dictionary<string, object>>(

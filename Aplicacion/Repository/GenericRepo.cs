@@ -81,5 +81,4 @@ public class GenericRepo <T> : IGenericRepo<T> where T : class
 
         return (totalRegistros, registros);
     }
-
 }

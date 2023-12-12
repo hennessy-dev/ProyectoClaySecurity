@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistencia;
 
@@ -10,9 +11,11 @@ using Persistencia;
 namespace Persistencia.Data.Migrations
 {
     [DbContext(typeof(ApiContext))]
-    partial class ApiContextModelSnapshot : ModelSnapshot
+    [Migration("20231212044745_Migration1")]
+    partial class Migration1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -230,10 +233,6 @@ namespace Persistencia.Data.Migrations
                         .HasMaxLength(45)
                         .HasColumnType("varchar(45)");
 
-                    b.Property<DateTime>("DateReg")
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("DateReg");
-
                     b.Property<int>("IdCategoriaPersonaFk")
                         .HasColumnType("int");
 
@@ -325,8 +324,8 @@ namespace Persistencia.Data.Migrations
 
                     b.Property<string>("Token")
                         .IsRequired()
-                        .HasMaxLength(600)
-                        .HasColumnType("varchar(600)");
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
 
                     b.HasKey("Id")
                         .HasName("PRIMARY");

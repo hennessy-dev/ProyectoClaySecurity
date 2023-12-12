@@ -11,8 +11,8 @@ using Persistencia;
 namespace Persistencia.Data.Migrations
 {
     [DbContext(typeof(ApiContext))]
-    [Migration("20231212031612_Migration2")]
-    partial class Migration2
+    [Migration("20231212074151_Migration3")]
+    partial class Migration3
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,7 +30,7 @@ namespace Persistencia.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("Id");
+                        .HasColumnName("id");
 
                     b.Property<string>("NombreCategoria")
                         .IsRequired()
@@ -48,7 +48,7 @@ namespace Persistencia.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("Id");
+                        .HasColumnName("id");
 
                     b.Property<int>("IdDepartamentoFk")
                         .HasColumnType("int");
@@ -222,7 +222,7 @@ namespace Persistencia.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("id");
+                        .HasColumnName("Id");
 
                     b.Property<string>("Apellido")
                         .IsRequired()
@@ -232,6 +232,10 @@ namespace Persistencia.Data.Migrations
                     b.Property<string>("Apellido2")
                         .HasMaxLength(45)
                         .HasColumnType("varchar(45)");
+
+                    b.Property<DateTime>("DateReg")
+                        .HasColumnType("DATETIME")
+                        .HasColumnName("DateReg");
 
                     b.Property<int>("IdCategoriaPersonaFk")
                         .HasColumnType("int");
@@ -324,8 +328,8 @@ namespace Persistencia.Data.Migrations
 
                     b.Property<string>("Token")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar(255)");
+                        .HasMaxLength(600)
+                        .HasColumnType("varchar(600)");
 
                     b.HasKey("Id")
                         .HasName("PRIMARY");
@@ -462,8 +466,8 @@ namespace Persistencia.Data.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasMaxLength(45)
-                        .HasColumnType("varchar(45)");
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
 
                     b.HasKey("Id")
                         .HasName("PRIMARY");

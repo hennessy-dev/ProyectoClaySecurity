@@ -22,6 +22,7 @@ public class PersonaConfiguration : IEntityTypeConfiguration<Persona>
             entity.Property(e => e.Apellido).HasMaxLength(45);
             entity.Property(e => e.Apellido2).HasMaxLength(45);
             entity.Property(e => e.IdPersonaU).HasColumnName("idPersonaU");
+            entity.Property(e => e.DateReg).HasColumnName("DateReg").HasColumnType("DATETIME");
             entity.Property(e => e.Nombre).HasMaxLength(45);
             entity.Property(e => e.Nombre2).HasMaxLength(45);
 

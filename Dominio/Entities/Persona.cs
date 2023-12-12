@@ -15,6 +15,7 @@ public partial class Persona
     public string Apellido { get; set; } = null!;
 
     public string? Apellido2 { get; set; }
+    public DateTime DateReg {get; set;} = DateTime.UtcNow;
 
     public int IdTipoPersonaFk { get; set; }
 

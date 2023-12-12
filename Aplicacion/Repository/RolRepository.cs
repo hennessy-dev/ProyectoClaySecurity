@@ -10,7 +10,7 @@ public class RolRepository : GenericRepo<Rol>, IRol
     
     public RolRepository(ApiContext context) : base(context)
     {
-       _context = context;
+        _context = context;
     }
     public override async Task<IEnumerable<Rol>> GetAllAsync()
     {
